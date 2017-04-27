@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.2.1.min.js"></script>
+    ‏
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        .line{
+            margin: 0 auto;
+            width: 600px;
+            height: 200px;
+            float: left;
+        }
+        .square{
+            border:2px solid black;
+            height: 100%;
+            width: 30%;
+            float: left;
+        }
+        .main{
+            margin:0 auto;
+            width: 600px;
+
+        }
+        h1{
+            text-align:center;
+        }
+
+    </style>
+
+    <script>
+        var counter=0;
+        function insert(id) {
+            alert("ui");
+            //alert(id)
+            if (counter % 2 == 0) {
+                $('#id').html('<img src="_images/X.jpg" width="150">');
+
+                counter++;
+            }
+
+        }
+
+
+    </script>
+
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+<h1>Tic Tac Toe</h1>
+<div class="main">
+    <h1>welcome tic tac toe</h1>
+    <div class="line">
+        <div class="square" id="s1" onclick="insert(s1)"> </div>
+        <div class="square" id="s2" ></div>
+        <div class="square" id="s3"></div>
+    </div>
+    <div class="line">
+        <div class="square" id="s4"></div>
+        <div class="square" id="s5"></div>
+        <div class="square" id="s6"></div>
+
+    </div>
+    <div class="line">
+        <div class="square" id="s7"></div>
+        <div class="square" id="s8"></div>
+        <div class="square" id="s9"></div>
+    </div>
+</div>
+
+<img src="_images\X.jpg">
+<img src="_images\O.jpg">
+</body>
+</html>
