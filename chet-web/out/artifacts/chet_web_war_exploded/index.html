@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chat</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+        var messeges=[];
+        var counter=0;
+
+        function login() {
+            $.get("MainServlet?action=login&name=" + $("#userText").val() + "&password=" + $("#passwordText").val(), function (data, status) {
+                if (status == "success") {
+                    if (data == "ok") {
+                        $("#loginDiv").hide();
+                        $("#chatDiv").show();
+                    }
+                }
+            });
+        }
+        function sighup() {
+            $.get("MainServlet?action=sighup&name=" + $("#userText").val() + "&password=" + $("#passwordText").val(), function (data, status) {
+                if (status == "success") {
+                    if (data == "ok") {
+                        $("#loginDiv").hide();
+                        $("#chatDiv").show();
+                    }
+                }
+            });
+
+        }
+
+        function btnInput() {
+             $.get("MainServlet?action=addMessage&message="+$("#inputTest").val(),function (data,status) {
+                 if (status == "success") {
+                     if (data.length > 0) {
+                         btnOutput();
+                     }
+                 }
+             });
+
+        }
+        function btnOutput() {
+            $.get("MainServlet?action=getMessage&position=" + messeges.length, function (data, status) {
+                if (status == "success") {
+                    if (data.length > 0) {
+                        var strings = data.split("&&&");
+                        for (var i = 0; i < strings.length-1; i++) {
+                            messeges.push(decodeURIComponent(strings[i]) + "<br>");
+                        }
+                        $("#divResult").html(messeges);
+                        $("#inputTest").val("");
+                    }
+                }
+                setTimeout(function () {
+                    btnOutput();
+                }, 1000);
+            });
+
+//            var test = $("#txtTest").val();
+//            alert(test);
+        }
+    </script>
+</head>
+<body >
+<div id="loginDiv">
+    <label>user: </label>
+    <input type="text" id="userText">
+    <br/>
+    <label>password: </label>
+    <input type="text" id="passwordText">
+    <br/>
+    <input type="button" value="get in" onclick="login()">
+    <input type="button" value="sigh up" onclick="sighup()">
+</div>
+<div id="chatDiv" style="display: none">
+    <input type="text" id="inputTest">
+    <br/>
+    <input type="button" value="insert message" onclick="btnInput()">
+<br/>
+</div>
+
+<div id="divResult"></div>
+</body>
+</html>
+<!--incode,decode-->
