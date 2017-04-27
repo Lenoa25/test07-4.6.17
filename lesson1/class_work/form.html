@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		body{
+			background:blue;
+		}
+		.all_site{
+			width:900px;
+			background:white;
+			margin:0 auto;
+			padding:8px;
+		}
+	</style>
+	<meta charset="UTF-8"/>
+	<title> Passover ! </title>
+</head>
+<body>
+	<div class="all_site">
+	<h1>title order  </h1>
+	
+	<table border="1" cellspacing="0" width="600">
+		<tr align="center">
+			<th align="center"> product </th>
+			<th align="center"> price </th>
+			<th width="250"> image </th>
+		</tr>
+		<tr>
+			<td> matza square </td>
+			<td> 100 </td>
+			<td> <img src="_images/pic3.jpg" width="230">  </td>
+		</tr>
+		<tr>
+			<td> oval egg </td>
+			<td> 1 </td>
+			<td> <img src="_images/pic5.jpg" width="230">  </td>
+		</tr>
+		<tr>
+			<td> passover hagada </td>
+			<td> 20 </td>
+			<td> <img src="_images/pic2.jpg" width="230">  </td>
+		</tr>
+	</table>
+	
+	<form action="thank_you.html" metod="post">
+		<label>name: </label>
+		<input type="text" name="txt_name">
+		<br>
+		<label>phone: </label>
+		<input type="text" name="txt_phone">
+		<br>
+		<label> product: </label>
+		<select name="select_item">
+			<option value="matza">matza square</option>
+			<option value="egg">oval egg</option>
+			<option value="hagada">passover hagada</option>
+		</select>
+		<br>
+		<button type="submit" >order</button>
+	</form>
+	<label><a href="index.html">back</a></label>
+	</div>
+</body>
+</html>
