@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
 
  //       Menu1 menu1=new Menu1(map);
-        Menu2 menu2=new Menu2(map);
+        Menu menu =new Menu(map);
 
 
     }

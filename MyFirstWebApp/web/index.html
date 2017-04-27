@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Web Page</title>
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+        function btnTest() {
+
+            $.get("/MainServlet?action="+$("#action").val()+"&operand1="+$("#operand1").val()+"&operand2="+$("#operand2").val(),function (data,status) {
+                if(status=="success"){
+                    if(data.length>0){
+                        $("#divResult").html(data);
+                        $("#result").show();
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome!!!!!!</h1>
+    <br/>
+    <input type="text" id="operand1">
+    <br/>
+    <input type="text" id="operand2">
+    <br/>
+    <label> operation: </label>
+    <select name="select_item" id="action">
+        <option value="add" >add</option>
+        <option value="subtract">subtract</option>
+        <option value="multiply">multiply</option>
+        <option value="divide">divide</option>
+    </select>
+    <br/>
+    <input type="button" value="send" onclick="btnTest()">
+    <br/>
+
+    <div id="result" style="display: none">
+        <br/>
+        <label> result:  </label>
+      <div id="divResult">
+      </div>
+    </div>
+
+</body>
+</html>
